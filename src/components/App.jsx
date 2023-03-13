@@ -15,15 +15,11 @@ class App extends Component {
   };
 
   addFeedback = (butId) => {
-    console.log(`Pressed button ${butId}`);
     for (const review in this.state) {
-      console.log(review === butId);
       review === butId && this.setState(prevState => ({
-        
-   
+        [review]: prevState[review] + 1,
       }))
     }
-
   };
 
   render() {
