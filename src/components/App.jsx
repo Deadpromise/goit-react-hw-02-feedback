@@ -20,7 +20,6 @@ class App extends Component {
     neutral: 0,
     bad: 0
   };
-
   addFeedback = (butId) => {
     for (const review in this.state) {
       review === butId && this.setState(prevState => ({
@@ -28,7 +27,6 @@ class App extends Component {
       }))
     }
   };
-
   render() {
     const { good, neutral, bad } = this.state;
     const countTotalFeedback = () => {
