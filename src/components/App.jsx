@@ -7,7 +7,14 @@ import Section from "./Section/Section";
 import Notification from "./Notification/Notification";
 
 class App extends Component {
+  static propTypes = {
+    state: PropTypes.shape({
+      good: PropTypes.number.isRequired,
+      neutral: PropTypes.number.isRequired,
+      bad: PropTypes.number.isRequired,
+    })
 
+  }
   state = {
     good: 0,
     neutral: 0,
@@ -39,8 +46,9 @@ class App extends Component {
       style={{
         height: '100vh',
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'start',
         alignItems: 'center',
+        flexDirection: 'column',
         fontSize: 40,
         color: '#010101'
       }}
