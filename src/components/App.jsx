@@ -3,11 +3,11 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import Statistics from "./Statistics/Statistics";
 import FeedbackOptions from "./FeedbackOptions/FeedbackOptions";
+import Section from "./Section/Section";
+import Notification from "./Notification/Notification";
 
 class App extends Component {
-  static propTypes = {
 
-  };
   state = {
     good: 0,
     neutral: 0,
@@ -44,14 +44,21 @@ class App extends Component {
         fontSize: 40,
         color: '#010101'
       }}
-    ><FeedbackOptions options={this.state} onLeaveFeedback={this.addFeedback}>     
-      </FeedbackOptions>
-      <Statistics
+    ><Section title='Please leave feedback'>
+        <FeedbackOptions options={this.state} onLeaveFeedback={this.addFeedback}>     
+        </FeedbackOptions>
+      </Section>
+      <Section title='Statistics'>
+        {total === 0 ?
+        <Notification message='There is no feedback'></Notification> :
+        <Statistics
         good={good}
         neutral={neutral}
         bad={bad}
         total={total}
-        positivePercentage={positivePercentage}></Statistics>
+        positivePercentage={positivePercentage}>
+        </Statistics>}
+      </Section>
     </div>
   }
 }
